@@ -1,0 +1,11 @@
+{
+  "name": "tactical-shooter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Top-down tactical shooter with F.E.A.R.-style GOAP enemy AI",
+  "type": "module",
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "test": "node --test"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "name": "arena",
+  "width": 1600,
+  "height": 1000,
+  "obstacles": [
+    { "id": "wall-nw", "shape": "rect", "x": 380, "y": 160, "w": 40, "h": 260, "height": "high" },
+    { "id": "wall-sw", "shape": "rect", "x": 380, "y": 580, "w": 40, "h": 260, "height": "high" },
+    { "id": "wall-ne", "shape": "rect", "x": 1180, "y": 160, "w": 40, "h": 260, "height": "high" },
+    { "id": "wall-se", "shape": "rect", "x": 1180, "y": 580, "w": 40, "h": 260, "height": "high" },
+    { "id": "pillar", "shape": "circle", "cx": 800, "cy": 500, "r": 60, "height": "high" },
+    { "id": "low-n", "shape": "rect", "x": 620, "y": 250, "w": 360, "h": 28, "height": "low" },
+    { "id": "low-s", "shape": "rect", "x": 620, "y": 722, "w": 360, "h": 28, "height": "low" },
+    { "id": "low-w", "shape": "circle", "cx": 560, "cy": 500, "r": 26, "height": "low" },
+    { "id": "low-e", "shape": "circle", "cx": 1040, "cy": 500, "r": 26, "height": "low" },
+    { "id": "block-w1", "shape": "rect", "x": 140, "y": 250, "w": 80, "h": 80, "height": "high" },
+    { "id": "block-w2", "shape": "rect", "x": 140, "y": 670, "w": 80, "h": 80, "height": "high" },
+    { "id": "block-e1", "shape": "rect", "x": 1380, "y": 250, "w": 80, "h": 80, "height": "high" },
+    { "id": "block-e2", "shape": "rect", "x": 1380, "y": 670, "w": 80, "h": 80, "height": "high" }
+  ],
+  "playerStart": { "x": 100, "y": 500, "angle": 0 },
+  "spawns": []
+}

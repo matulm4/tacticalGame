@@ -1,0 +1,273 @@
+/* Layout and UI chrome only. Game colors live in src/client/render/theme.js. */
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --fg: #1b1e23;
+  --muted: #6b7480;
+  --panel: rgba(255, 255, 255, 0.92);
+  --border: rgba(20, 30, 45, 0.18);
+  --control: rgba(20, 30, 45, 0.06);
+  --control-hover: rgba(20, 30, 45, 0.12);
+  --control-active: rgba(20, 30, 45, 0.2);
+  --pip-on: #2fbf71;
+  --pip-off: rgba(20, 30, 45, 0.14);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--fg);
+  font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+#game {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ---- End-of-match overlay ---- */
+#screens {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+#screens[hidden] { display: none; }
+body[data-mode="editor"] #screens { display: none; }
+
+#screens .card {
+  min-width: 280px;
+  padding: 24px 32px;
+  text-align: center;
+  background: var(--bg);
+  border: 2px solid var(--fg);
+  border-radius: 14px;
+}
+
+#screens .title { margin: 0 0 4px; font-size: 26px; }
+#screens[data-outcome="lose"] .title { color: #c0282d; }
+#screens[data-outcome="win"] .title { color: #1f8a4f; }
+#screens .detail { margin: 0 0 18px; color: var(--muted); }
+#screens .actions { display: flex; gap: 8px; justify-content: center; }
+
+#screens button {
+  font: inherit;
+  padding: 6px 16px;
+  color: var(--fg);
+  background: var(--control);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#screens button:hover { background: var(--control-hover); }
+#screens button.primary { background: var(--fg); color: var(--bg); border-color: var(--fg); font-weight: 600; }
+
+/* ---- Modes: the editor shows a toolbar and the whole map; play shows the HUD and debug panel ---- */
+body[data-mode="editor"] #hud,
+body[data-mode="editor"] #debug-panel { display: none; }
+
+body[data-mode="play"] #toolbar { display: none; }
+
+/* In the editor the canvas sits below the toolbar (EditorToolbar publishes its height). */
+body[data-mode="editor"] #game {
+  top: var(--toolbar-height, 0px);
+  /* A canvas is a replaced element: top/bottom do not stretch it, so give it an explicit height. */
+  height: calc(100% - var(--toolbar-height, 0px));
+}
+
+/* ---- Editor toolbar ---- */
+#toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 8px 10px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  user-select: none;
+}
+
+#toolbar .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+}
+
+#toolbar .group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#toolbar .label { color: var(--muted); margin-right: 2px; }
+
+#toolbar button,
+#toolbar select,
+#toolbar input[type="text"] {
+  font: inherit;
+  color: inherit;
+  background: var(--control);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 3px 9px;
+}
+
+#toolbar button { cursor: pointer; }
+#toolbar button:hover:not(:disabled) { background: var(--control-hover); }
+#toolbar button[aria-pressed="true"] { background: var(--control-active); border-color: var(--fg); }
+#toolbar button:disabled,
+#toolbar select:disabled { opacity: 0.4; cursor: default; }
+#toolbar button.play { background: var(--fg); color: var(--bg); border-color: var(--fg); font-weight: 600; }
+#toolbar input.name { width: 130px; }
+#toolbar [hidden] { display: none; }
+
+#toolbar .status {
+  display: flex;
+  gap: 14px;
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+#toolbar .issue.error { color: #c0282d; font-weight: 600; }
+#toolbar .issue.warning { color: #a86a00; }
+
+/* ---- Debug panel ---- */
+#debug-panel {
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  padding: 8px 10px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  user-select: none;
+}
+
+#debug-panel pre {
+  margin: 0 0 6px;
+  white-space: pre;
+}
+
+#debug-panel .row {
+  display: flex;
+  gap: 4px;
+}
+
+#debug-panel .hint {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+#debug-panel button {
+  font: inherit;
+  color: inherit;
+  background: var(--control);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  cursor: pointer;
+}
+
+#debug-panel button:hover { background: var(--control-hover); }
+#debug-panel button[aria-pressed="true"] { background: var(--control-active); }
+
+/* ---- HUD ---- */
+#hud {
+  position: fixed;
+  left: 20px;
+  right: 20px;
+  bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* The map fills the screen, so HUD elements get a backing panel to stay readable over cover. */
+#hud .hp,
+#hud .ammo {
+  padding: 8px 12px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+#hud .hp {
+  display: flex;
+  gap: 6px;
+}
+
+#hud .pip {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--pip-off);
+  border: 2px solid var(--fg);
+}
+
+#hud .pip.on { background: var(--pip-on); }
+
+#hud .enemies {
+  align-self: flex-end;
+  padding: 8px 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+#hud .enemies[hidden] { display: none; }
+
+#hud .ammo {
+  text-align: right;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+#hud .ammo .mag { color: var(--muted); font-weight: 400; }
+
+/* Fixed height so the ammo counter does not jump when the bar appears. */
+#hud .ammo .reload {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 14px;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+#hud .reload .bar {
+  width: 150px;
+  height: 10px;
+  border: 2px solid var(--fg);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#hud .reload .bar[hidden] { display: none; }
+
+#hud .reload .fill {
+  width: 100%;
+  height: 100%;
+  background: var(--fg);
+  transform-origin: left center;
+  transform: scaleX(0);
+}

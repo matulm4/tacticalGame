@@ -1,0 +1,16 @@
+{
+  "maps": [
+    {
+      "name": "Arena",
+      "file": "arena.json"
+    },
+    {
+      "name": "Building",
+      "file": "building.json"
+    },
+    {
+      "name": "Crossfire",
+      "file": "crossfire.json"
+    }
+  ]
+}

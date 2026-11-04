@@ -1,0 +1,444 @@
+{
+  "version": 1,
+  "name": "building",
+  "width": 1600,
+  "height": 1000,
+  "obstacles": [
+    {
+      "id": "outer-n-1",
+      "shape": "rect",
+      "x": 100,
+      "y": 60,
+      "w": 1400,
+      "h": 40,
+      "height": "high"
+    },
+    {
+      "id": "outer-s-1",
+      "shape": "rect",
+      "x": 100,
+      "y": 820,
+      "w": 620,
+      "h": 40,
+      "height": "high"
+    },
+    {
+      "id": "outer-s-2",
+      "shape": "rect",
+      "x": 880,
+      "y": 820,
+      "w": 620,
+      "h": 40,
+      "height": "high"
+    },
+    {
+      "id": "outer-w-1",
+      "shape": "rect",
+      "x": 100,
+      "y": 100,
+      "w": 40,
+      "h": 720,
+      "height": "high"
+    },
+    {
+      "id": "outer-e-1",
+      "shape": "rect",
+      "x": 1460,
+      "y": 100,
+      "w": 40,
+      "h": 720,
+      "height": "high"
+    },
+    {
+      "id": "corridor-n-1",
+      "shape": "rect",
+      "x": 140,
+      "y": 400,
+      "w": 120,
+      "h": 40,
+      "height": "high"
+    },
+    {
+      "id": "corridor-n-2",
+      "shape": "rect",
+      "x": 380,
+      "y": 400,
+      "w": 320,
+      "h": 40,
+      "height": "high"
+    },
+    {
+      "id": "corridor-n-3",
+      "shape": "rect",
+      "x": 900,
+      "y": 400,
+      "w": 320,
+      "h": 40,
+      "height": "high"
+    },
+    {
+      "id": "corridor-n-4",
+      "shape": "rect",
+      "x": 1340,
+      "y": 400,
+      "w": 120,
+      "h": 40,
+      "height": "high"
+    },
+    {
+      "id": "corridor-s-1",
+      "shape": "rect",
+      "x": 140,
+      "y": 560,
+      "w": 160,
+      "h": 40,
+      "height": "high"
+    },
+    {
+      "id": "corridor-s-2",
+      "shape": "rect",
+      "x": 420,
+      "y": 560,
+      "w": 300,
+      "h": 40,
+      "height": "high"
+    },
+    {
+      "id": "corridor-s-3",
+      "shape": "rect",
+      "x": 880,
+      "y": 560,
+      "w": 220,
+      "h": 40,
+      "height": "high"
+    },
+    {
+      "id": "corridor-s-4",
+      "shape": "rect",
+      "x": 1220,
+      "y": 560,
+      "w": 240,
+      "h": 40,
+      "height": "high"
+    },
+    {
+      "id": "north-ab-1",
+      "shape": "rect",
+      "x": 500,
+      "y": 100,
+      "w": 40,
+      "h": 100,
+      "height": "high"
+    },
+    {
+      "id": "north-ab-2",
+      "shape": "rect",
+      "x": 500,
+      "y": 300,
+      "w": 40,
+      "h": 100,
+      "height": "high"
+    },
+    {
+      "id": "north-bc-1",
+      "shape": "rect",
+      "x": 1060,
+      "y": 100,
+      "w": 40,
+      "h": 80,
+      "height": "high"
+    },
+    {
+      "id": "north-bc-2",
+      "shape": "rect",
+      "x": 1060,
+      "y": 280,
+      "w": 40,
+      "h": 120,
+      "height": "high"
+    },
+    {
+      "id": "south-ab-1",
+      "shape": "rect",
+      "x": 600,
+      "y": 600,
+      "w": 40,
+      "h": 80,
+      "height": "high"
+    },
+    {
+      "id": "south-ab-2",
+      "shape": "rect",
+      "x": 600,
+      "y": 760,
+      "w": 40,
+      "h": 60,
+      "height": "high"
+    },
+    {
+      "id": "south-bc-1",
+      "shape": "rect",
+      "x": 960,
+      "y": 600,
+      "w": 40,
+      "h": 60,
+      "height": "high"
+    },
+    {
+      "id": "south-bc-2",
+      "shape": "rect",
+      "x": 960,
+      "y": 740,
+      "w": 40,
+      "h": 80,
+      "height": "high"
+    },
+    {
+      "id": "a-counter",
+      "shape": "rect",
+      "x": 200,
+      "y": 230,
+      "w": 120,
+      "h": 24,
+      "height": "low"
+    },
+    {
+      "id": "a-crate",
+      "shape": "rect",
+      "x": 400,
+      "y": 300,
+      "w": 60,
+      "h": 60,
+      "height": "high"
+    },
+    {
+      "id": "b-pillar",
+      "shape": "circle",
+      "cx": 800,
+      "cy": 250,
+      "r": 36,
+      "height": "high"
+    },
+    {
+      "id": "b-table-w",
+      "shape": "rect",
+      "x": 600,
+      "y": 160,
+      "w": 160,
+      "h": 24,
+      "height": "low"
+    },
+    {
+      "id": "b-table-e",
+      "shape": "rect",
+      "x": 860,
+      "y": 330,
+      "w": 160,
+      "h": 24,
+      "height": "low"
+    },
+    {
+      "id": "b-crate",
+      "shape": "rect",
+      "x": 980,
+      "y": 150,
+      "w": 60,
+      "h": 60,
+      "height": "high"
+    },
+    {
+      "id": "c-low-wall",
+      "shape": "rect",
+      "x": 1280,
+      "y": 180,
+      "w": 24,
+      "h": 140,
+      "height": "low"
+    },
+    {
+      "id": "c-crate",
+      "shape": "rect",
+      "x": 1130,
+      "y": 300,
+      "w": 70,
+      "h": 50,
+      "height": "high"
+    },
+    {
+      "id": "c-planter",
+      "shape": "circle",
+      "cx": 1390,
+      "cy": 330,
+      "r": 28,
+      "height": "low"
+    },
+    {
+      "id": "corridor-bench-n",
+      "shape": "rect",
+      "x": 400,
+      "y": 445,
+      "w": 100,
+      "h": 24,
+      "height": "low"
+    },
+    {
+      "id": "corridor-bench-s",
+      "shape": "rect",
+      "x": 1000,
+      "y": 531,
+      "w": 100,
+      "h": 24,
+      "height": "low"
+    },
+    {
+      "id": "sw-crate-1",
+      "shape": "rect",
+      "x": 200,
+      "y": 640,
+      "w": 70,
+      "h": 70,
+      "height": "high"
+    },
+    {
+      "id": "sw-crate-2",
+      "shape": "rect",
+      "x": 480,
+      "y": 740,
+      "w": 60,
+      "h": 60,
+      "height": "high"
+    },
+    {
+      "id": "sw-counter",
+      "shape": "rect",
+      "x": 300,
+      "y": 700,
+      "w": 120,
+      "h": 24,
+      "height": "low"
+    },
+    {
+      "id": "lobby-desk",
+      "shape": "circle",
+      "cx": 800,
+      "cy": 700,
+      "r": 26,
+      "height": "low"
+    },
+    {
+      "id": "lobby-crate-w",
+      "shape": "rect",
+      "x": 660,
+      "y": 780,
+      "w": 40,
+      "h": 40,
+      "height": "high"
+    },
+    {
+      "id": "lobby-crate-e",
+      "shape": "rect",
+      "x": 900,
+      "y": 780,
+      "w": 40,
+      "h": 40,
+      "height": "high"
+    },
+    {
+      "id": "se-crate",
+      "shape": "rect",
+      "x": 1060,
+      "y": 640,
+      "w": 60,
+      "h": 60,
+      "height": "high"
+    },
+    {
+      "id": "se-counter",
+      "shape": "rect",
+      "x": 1200,
+      "y": 720,
+      "w": 160,
+      "h": 24,
+      "height": "low"
+    },
+    {
+      "id": "se-pillar",
+      "shape": "circle",
+      "cx": 1400,
+      "cy": 660,
+      "r": 30,
+      "height": "high"
+    }
+  ],
+  "playerStart": {
+    "x": 800,
+    "y": 940,
+    "angle": -1.5708
+  },
+  "spawns": [
+    {
+      "id": "s1",
+      "type": "sentry",
+      "team": "enemy",
+      "x": 320,
+      "y": 160,
+      "angle": 1.5708
+    },
+    {
+      "id": "s2",
+      "type": "grunt",
+      "team": "enemy",
+      "x": 800,
+      "y": 160,
+      "angle": 1.5708
+    },
+    {
+      "id": "s3",
+      "type": "sentry",
+      "team": "enemy",
+      "x": 1000,
+      "y": 300,
+      "angle": 3.1416
+    },
+    {
+      "id": "s4",
+      "type": "grunt",
+      "team": "enemy",
+      "x": 1360,
+      "y": 160,
+      "angle": 1.5708
+    },
+    {
+      "id": "s5",
+      "type": "grunt",
+      "team": "enemy",
+      "x": 1300,
+      "y": 500,
+      "angle": 3.1416
+    },
+    {
+      "id": "s6",
+      "type": "grunt",
+      "team": "enemy",
+      "x": 300,
+      "y": 780,
+      "angle": -1.5708
+    },
+    {
+      "id": "s7",
+      "type": "sentry",
+      "team": "enemy",
+      "x": 1400,
+      "y": 780,
+      "angle": 3.1416
+    },
+    {
+      "id": "s8",
+      "type": "grunt",
+      "team": "enemy",
+      "x": 1140,
+      "y": 760,
+      "angle": 3.1416
+    }
+  ]
+}
